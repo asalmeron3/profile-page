@@ -1,0 +1,9 @@
+.profilePic {
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.banner-container {
+    margin: 20px;
+}
