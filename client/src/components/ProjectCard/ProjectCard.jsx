@@ -1,14 +1,13 @@
 import {Card, Button} from 'react-bootstrap';
 
-function ProjectCard({name, title, description, src}) {
+function ProjectCard({name, description, img_src, project_link}) {
   return (
     <Card className="mb-4">
-        <Card.Img variant="top" src={src}/>
+        <Card.Img variant="top" src={img_src}/>
       <Card.Body>
         <Card.Title>{name}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">{title}</Card.Subtitle>
         <Card.Text>{description}</Card.Text>
-        <Button variant="primary">View Project</Button>
+        <Button href={project_link} target="_blank" variant="primary">View Project</Button>
       </Card.Body>
     </Card>
   );
