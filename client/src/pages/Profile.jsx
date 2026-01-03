@@ -1,6 +1,7 @@
 import {Container, Row, Col} from "react-bootstrap";
 import Banner from "../components/Banner/Banner";
 import ProjectCard from "../components/ProjectCard/ProjectCard";
+import ProjectForm from "./ProjectForm.jsx";
 import selfie from "../assets/selfie.jpg";
 import {fetchProjects} from "../api.js";
 import {useEffect, useState} from "react";
@@ -22,6 +23,7 @@ function Profile() {
             </Col>
           ))}
         </Row>
+        {/* <ProjectForm /> */}
       </Container>
   );
 }
