@@ -23,7 +23,7 @@ function Profile() {
             </Col>
           ))}
         </Row>
-        {/* <ProjectForm /> */}
+        <ProjectForm />
       </Container>
   );
 }

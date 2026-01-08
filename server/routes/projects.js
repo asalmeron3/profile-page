@@ -7,4 +7,18 @@ router.get('/', async (req, res) => {
     res.json(rows);
 });
 
+router.post('/', async (req, res) => {
+    const { title, description, imgLink } = req.body;
+    try {
+        const [result] = await db.query(
+            'INSERT INTO projects (name, description, image_url) VALUES (?, ?, ?)',
+            [title, description, imgLink]
+        );
+        res.status(201).json({ id: result.insertId, title, description, imgLink });
+    } catch (error) {
+        console.error("Error creating project:", error);
+        res.status(500).json({ error: "Failed to create project" });
+    }
+});
+
 module.exports = router;

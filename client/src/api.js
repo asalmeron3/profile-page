@@ -8,3 +8,18 @@ export const fetchProjects = () => {
       throw error;
     });
 };
+
+export const createProject = (projectData) => {
+  return fetch(`${API_URL}/api/projects`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(projectData),
+  })
+    .then((response) => response.json())
+    .catch((error) => {
+      console.error('Error creating project:', error);
+      throw error;
+    });
+};

@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 
 const projectsRoutes = require('./routes/projects');
-const PORT = process.env.DB_PORT || 3000;
+const PORT = process.env.PORTc || 3000;
 
 const app = express();
 app.use(cors());

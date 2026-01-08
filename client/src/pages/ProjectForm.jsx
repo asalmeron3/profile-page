@@ -1,5 +1,6 @@
 import { Form, Button} from "react-bootstrap";
 import {useState} from "react";
+import { createProject } from "../api";
 
 function ProjectForm() {
   const [formData, setFormData]  = useState({
@@ -15,9 +16,14 @@ function ProjectForm() {
     });
   }
 
-  function postFormData(event) {
+  async function postFormData(event) {
     event.preventDefault();
-    console.log("Form submitted", formData);
+    try {
+      const result = await createProject(formData);
+      console.log("Project created successfully:", result);
+    } catch (error) {
+      console.error("Error creating project:", error);
+    }
   }
 
   return (
