@@ -13,6 +13,10 @@ function Profile() {
     .then(setProjects );
   }, []);
 
+  function handleProjectAdded(newProject) {
+    setProjects(prevProjects => [...prevProjects, newProject]);
+  }
+
   return (
     <Container>
       <Banner mainText="Arturo Salmeron" subText="Aspiring Jack of All Trades, Master of Learning" imgSrc={selfie} />
@@ -23,7 +27,7 @@ function Profile() {
             </Col>
           ))}
         </Row>
-        <ProjectForm />
+        <ProjectForm onProjectAdded={handleProjectAdded} />
       </Container>
   );
 }

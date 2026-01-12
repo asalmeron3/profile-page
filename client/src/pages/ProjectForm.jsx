@@ -2,7 +2,7 @@ import { Form, Button} from "react-bootstrap";
 import {useState} from "react";
 import { createProject } from "../api";
 
-function ProjectForm() {
+function ProjectForm({ onProjectAdded }) {
   const [formData, setFormData]  = useState({
     title: "",
     description: "",
@@ -20,7 +20,17 @@ function ProjectForm() {
     event.preventDefault();
     try {
       const result = await createProject(formData);
-      console.log("Project created successfully:", result);
+
+      onProjectAdded({
+        id: result.id,
+        ...formData
+      });
+      
+      setFormData({
+        title: "",
+        description: "",
+        imgLink: ""
+      });
     } catch (error) {
       console.error("Error creating project:", error);
     }
